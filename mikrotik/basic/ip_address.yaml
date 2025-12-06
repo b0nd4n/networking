@@ -1,9 +1,9 @@
-[admin@Kantor Pusat] > ip address add address=192.168.100.233/24 interface=ether1
-[admin@Kantor Pusat] > ip address add address=10.0.1.1/24 interface=ether2
-[admin@Kantor Pusat] > ip address add address=10.1.1.1/24 interface=ether3
-[admin@Kantor Pusat] > ip address add address=10.2.1.1/24 interface=ether4
+[admin@Mikrotik] > ip address add address=192.168.100.233/24 interface=ether1
+[admin@Mikrotik] > ip address add address=10.0.1.1/24 interface=ether2
+[admin@Mikrotik] > ip address add address=10.1.1.1/24 interface=ether3
+[admin@Mikrotik] > ip address add address=10.2.1.1/24 interface=ether4
 
-[admin@Kantor Pusat] > ip address print
+[admin@Mikrotik] > ip address print
 Flags: X - disabled, I - invalid, D - dynamic 
  #   ADDRESS            NETWORK         INTERFACE                              
  0   192.168.100.233/24 192.168.100.0   ether1                                 

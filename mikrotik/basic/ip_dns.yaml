@@ -1,6 +1,6 @@
-[admin@Kantor Pusat] > ip dns set servers=192.168.100.1 allow-remote-requests=yes
+[admin@Mikrotik] > ip dns set servers=192.168.100.1 allow-remote-requests=yes
 
-[admin@Kantor Pusat] > ip dns print 
+[admin@Mikrotik] > ip dns print 
                       servers: 192.168.100.1
               dynamic-servers: 
                use-doh-server: 

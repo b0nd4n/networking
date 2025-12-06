@@ -1,6 +1,6 @@
-[admin@Kantor Pusat] > ip route add dst-address=0.0.0.0/0 gateway=192.168.100.1
+[admin@Mikrotik] > ip route add dst-address=0.0.0.0/0 gateway=192.168.100.1
 
-[admin@Kantor Pusat] > ip route print
+[admin@Mikrotik] > ip route print
 Flags: X - disabled, A - active, D - dynamic, 
 C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
 B - blackhole, U - unreachable, P - prohibit 
