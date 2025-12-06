@@ -1,0 +1,6 @@
+[admin@Kantor Pusat] > ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade 
+
+[admin@Kantor Pusat] > ip firewall nat print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ 0    chain=srcnat action=masquerade out-interface=ether1 
+
