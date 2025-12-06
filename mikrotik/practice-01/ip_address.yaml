@@ -1,0 +1,40 @@
+Router-1
+[admin@MikroTik] > ip address add address=192.168.1.1/24 interface=ether1
+[admin@MikroTik] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.1/24     192.168.1.0     ether1 
+
+Router-2
+[admin@MikroTik] > ip address add address=192.168.2.1/24 interface=ether1
+[admin@MikroTik] > ip address add address=192.168.3.2/24 interface=ether2
+[admin@MikroTik] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.2.1/24     192.168.2.0     ether1                                 
+ 1   192.168.3.2/24     192.168.3.0     ether2 
+
+Router-3
+[admin@MikroTik] > ip address add address=192.168.2.2/24 interface=ether1
+[admin@MikroTik] > ip address add address=192.168.1.2/24 interface=ether2
+[admin@MikroTik] > ip address add address=192.168.4.2/24 interface=ether3
+[admin@MikroTik] > ip address add address=192.168.5.2/24 interface=ether4
+[admin@MikroTik] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.3.1/24     192.168.3.0     ether1                                 
+ 1   192.168.1.2/24     192.168.1.0     ether2                                 
+ 2   192.168.4.2/24     192.168.4.0     ether3                                 
+ 3   192.168.5.2/24     192.168.5.0     ether4 
+
+[admin@MikroTik] > ip address add address=192.168.4.1/24 interface=ether1
+[admin@MikroTik] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.4.1/24     192.168.4.0     ether1   
+
+[admin@MikroTik] > ip address add address=192.168.5.1/24 interface=ether1
+[admin@MikroTik] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.5.1/24     192.168.5.0     ether1 

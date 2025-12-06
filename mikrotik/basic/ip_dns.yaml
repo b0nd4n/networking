@@ -1,7 +1,6 @@
-[admin@Mikrotik] > ip dns set servers=192.168.100.1 allow-remote-requests=yes
-
+[admin@Mikrotik] > ip dns set servers=8.8.8.8 allow-remote-requests=yes 
 [admin@Mikrotik] > ip dns print 
-                      servers: 192.168.100.1
+                      servers: 8.8.8.8
               dynamic-servers: 
                use-doh-server: 
               verify-doh-cert: no

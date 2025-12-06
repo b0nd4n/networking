@@ -1,0 +1,26 @@
+Tips n Trick di mikrotik 
+
+1. Meng-identifikasi router
+  - [admin@MikroTik] > system identity set name=Router-1
+    [admin@Router-1] >
+
+2. Meng-aktifkan RoMon (Router Management Overlay Network)
+RoMON (Router Management Overlay Network) adalah fitur MikroTik untuk membuat jaringan overlay layer-2 yang aman, memungkinkan penemuan dan manajemen perangkat MikroTik secara remote (Winbox, SSH, Ping) meskipun berada di network berbeda, dengan cara membuat koneksi layer 2 transparan melalui tunnel (EoIP) atau fisik, menggunakan Secret (password) untuk autentikasi dan MAC address sebagai ID, sangat berguna untuk administrasi terpusat. 
+  - [admin@Router-1] > tool romon set enabled=yes
+  - [admin@Router-1] > tool romon print 
+        enabled: yes
+              id: 00:00:00:00:00:00
+        secrets: 
+      current-id: 0C:EA:F3:66:00:03
+
+3. Mengubah timezone
+  - [admin@MikroTik] > system clock set time-zone-name=Asia/Jakarta
+  - [admin@MikroTik] > system clock print 
+                      time: 18:20:09
+                      date: dec/06/2025
+      time-zone-autodetect: yes
+            time-zone-name: Asia/Jakarta
+                gmt-offset: +07:00
+                dst-active: no
+
+4. 

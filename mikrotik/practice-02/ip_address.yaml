@@ -1,0 +1,35 @@
+[admin@MikroTik] > sy identity set name=Router-1
+[admin@Router-1] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.1/24     192.168.1.0     ether1                                 
+ 1   192.168.5.2/24     192.168.5.0     ether2
+
+[admin@MikroTik] > sy identity set name=Router-2
+[admin@Router-2] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.2/24     192.168.1.0     ether1                                 
+ 1   192.168.2.1/24     192.168.2.0     ether2 
+
+[admin@MikroTik] > sy identity set name=Router-3
+[admin@Router-3] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.2.2/24     192.168.2.0     ether1                                 
+ 1   192.168.3.1/24     192.168.3.0     ether2 
+
+[admin@MikroTik] > sy identity set name=Router-4
+[admin@Router-4] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.3.2/24     192.168.3.0     ether1                                 
+ 1   192.168.4.1/24     192.168.4.0     ether2
+
+[admin@MikroTik] > sy identity set name=Router-5
+[admin@Router-5] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.4.2/24     192.168.4.0     ether1                                 
+ 1   192.168.5.1/24     192.168.5.0     ether2
+ 

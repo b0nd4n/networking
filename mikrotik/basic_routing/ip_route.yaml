@@ -1,0 +1,31 @@
+Router-1
+
+[admin@Mikrotik] > ip route add dst-address=192.168.1.0/24 gateway=192.168.0.2
+[admin@MikroTik] > ip route print 
+Flags: X - disabled, A - active, D - dynamic, 
+C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0 ADC  192.168.0.0/24     192.168.0.1     ether1                    0
+ 1 A S  192.168.1.0/24                     192.168.0.2               1
+
+Router-2
+
+[admin@MikroTik] > ip route print 
+Flags: X - disabled, A - active, D - dynamic, 
+C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0 ADC  192.168.0.0/24     192.168.0.2     ether1                    0
+ 1 ADC  192.168.1.0/24     192.168.1.1     ether2                    0
+
+Router-3
+
+[admin@Mikrotik] > ip route add dst-address=192.168.1.0/24 gateway=192.168.0.2
+[admin@Router-1] > ip route print 
+Flags: X - disabled, A - active, D - dynamic, 
+C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0 A S  192.168.0.0/24                     192.168.1.1               1
+ 1 ADC  192.168.1.0/24     192.168.1.2     ether1                    0

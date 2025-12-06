@@ -1,6 +1,4 @@
 [admin@Mikrotik] > ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade 
-
-[admin@Mikrotik] > ip firewall nat print 
+[admin@Mikrotik] > ip firewall nat print detail 
 Flags: X - disabled, I - invalid, D - dynamic 
- 0    chain=srcnat action=masquerade out-interface=ether1 
-
+ 0    chain=srcnat action=masquerade out-interface=ether1 log=no log-prefix="" 

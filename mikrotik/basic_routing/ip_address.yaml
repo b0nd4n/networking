@@ -1,58 +1,45 @@
-CBN 
-IP ADDRESS: 
-  - 202.158.25.34/28
-IP DNS: 
-  - primary: 202.158.3.7
-  - secondary: 202.158.3.6
+Router-1
+  - IP Address 
+    ether1: 192.168.0.1/24
+    ether2: 
+    ether3: 
+    ether4: 
 
-BIZNET
-IP ADDRESS: 
-  - 182.253.204.194/29
-IP DNS: 
-  - primary: 203.142.82.222
-  - secondary: 203.142.84.222
+Router-2
+  - IP Address 
+    ether1: 192.168.0.2/24
+    ether2: 192.168.1.1/24
+    ether3: 
+    ether4: 
+
+Router-3
+  - IP Address 
+    ether1: 192.168.1.2/24
+    ether2: 
+    ether3: 
+    ether4: 
 
 Router-1
-IP:
-  - ether1: 
-  - ether2: 192.168.10.1/24
+[admin@Mikrotik] > ip address add address=192.168.0.1/24 interface=ether1
+[admin@Mikrotik] > ip address print
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.0.1/24     192.168.0.0     ether1                                 
 
-Router-2  
-IP:
-  - ether1: 
-  - ether2: 192.168.10.254/24
+Router-2
+[admin@Mikrotik] > ip address add address=192.168.0.2/24 interface=ether1
+[admin@Mikrotik] > ip address add address=192.168.1.1/24 interface=ether2
+[admin@Mikrotik] > ip address print
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.0.2/24     192.168.0.0     ether1                                 
+ 0   192.168.1.1/24     192.168.1.0     ether1                                  
 
-R1-Klien
-IP:
-  - ether1: 192.168.10.11/24
-  - ether2: 
-  - ether3: 
-  - ether4: 
-
-R2-Klien
-IP:
-  - ether1: 192.168.10.12/24
-  - ether2: 
-  - ether3: 
-  - ether4: 
-
-R3-Klien
-IP:
-  - ether1: 192.168.10.13/24
-  - ether2: 
-  - ether3: 
-  - ether4: 
-
-R4-Klien
-IP:
-  - ether1: 192.168.10.14/24
-  - ether2: 
-  - ether3: 
-  - ether4: 
-
-R5-Klien
-IP:
-  - ether1: 192.168.10.15/24
-  - ether2: 
-  - ether3: 
-  - ether4: 
+Router-3
+[admin@Mikrotik] > ip address add address=192.168.1.2/24 interface=ether1
+[admin@Mikrotik] > ip address add address=192.168.2.1/24 interface=ether2
+[admin@Mikrotik] > ip address print
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.2/24     192.168.1.0     ether1                                 
+ 0   192.168.2.1/24     192.168.2.0     ether2                                 

@@ -1,12 +1,11 @@
-[admin@Mikrotik] > ip address add address=192.168.100.233/24 interface=ether1
-[admin@Mikrotik] > ip address add address=10.0.1.1/24 interface=ether2
-[admin@Mikrotik] > ip address add address=10.1.1.1/24 interface=ether3
-[admin@Mikrotik] > ip address add address=10.2.1.1/24 interface=ether4
-
+[admin@Mikrotik] > ip address add address=192.168.0.1/24 interface=ether1
+[admin@Mikrotik] > ip address add address=192.168.1.1/24 interface=ether2
+[admin@Mikrotik] > ip address add address=192.168.2.1/24 interface=ether3
+[admin@Mikrotik] > ip address add address=192.168.3.1/24 interface=ether4
 [admin@Mikrotik] > ip address print
 Flags: X - disabled, I - invalid, D - dynamic 
  #   ADDRESS            NETWORK         INTERFACE                              
- 0   192.168.100.233/24 192.168.100.0   ether1                                 
- 1   10.0.1.1/24        10.0.1.0        ether2                                 
- 2   10.1.1.1/24        10.1.1.0        ether3                                 
- 3   10.2.1.1/24        10.2.1.0        ether4
+ 0   192.168.0.1/24     192.168.0.0     ether1                                 
+ 0   192.168.1.1/24     192.168.1.0     ether2                                 
+ 0   192.168.2.1/24     192.168.2.0     ether3                                 
+ 0   192.168.3.1/24     192.168.3.0     ether4                                  

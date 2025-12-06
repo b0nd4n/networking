@@ -1,0 +1,23 @@
+Perintah dasar di mikrotik 
+
+1. Menambahkan ip address
+  - [admin@MikroTik] > ip address add address=10.10.10.1/24 interface=ether1
+* sesuaikan ip address dengan lingkungan anda
+
+2. Menambahkan ip route
+  - [admin@MikroTik] > ip route add dst-address=0.0.0.0/0 gateway=192.168.1.1
+* sesuaikan dst-address dengan network tujuan
+* sesuaikan gateway dengan lingkungan anda
+
+3. Menambahkan ip dns 
+  - [admin@MikroTik] > ip dns set servers=8.8.8.8 allow-remote-requests=yes
+* sesuaikan ip dns dengan ISP anda
+
+4. Menambahkan firewall nat
+  - [admin@MikroTik] > ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade 
+* sesuaikan interface yang digunakan sebagai trafik internet (ISP)
+
+5. Membuat user
+  - [admin@MikroTik] > user add name=badu password=rahasia group=full
+  - [admin@MikroTik] > user add name=bedu password=rahasia group=write
+  - [admin@MikroTik] > user add name=budi password=rahasia group=read
