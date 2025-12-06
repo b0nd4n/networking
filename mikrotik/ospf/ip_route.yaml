@@ -1,0 +1,139 @@
+🔧 1. Router-1
+/routing ospf instance
+set [ find default=yes ] router-id=1.1.1.1 distribute-default=never
+
+[admin@Router-1] > routing ospf instance print 
+Flags: X - disabled, * - default 
+ 0  * name="default" router-id=1.1.1.1 distribute-default=never 
+      redistribute-connected=no redistribute-static=no redistribute-rip=no 
+      redistribute-bgp=no redistribute-other-ospf=no metric-default=1 
+      metric-connected=20 metric-static=20 metric-rip=20 metric-bgp=auto 
+      metric-other-ospf=auto in-filter=ospf-in out-filter=ospf-out 
+
+/routing ospf network
+add network=192.168.1.0/24 area=backbone
+
+[admin@Router-1] > routing ospf network print 
+Flags: X - disabled, I - invalid 
+ #   NETWORK            AREA                                                   
+ 0   192.168.1.0/24     backbone 
+
+🔧 2. Router-2 (HUB utama)
+/routing ospf instance
+set [ find default=yes ] router-id=2.2.2.2 distribute-default=never
+
+[admin@Router-2] > routing ospf instance print 
+Flags: X - disabled, * - default 
+ 0  * name="default" router-id=2.2.2.2 distribute-default=never 
+      redistribute-connected=no redistribute-static=no redistribute-rip=no 
+      redistribute-bgp=no redistribute-other-ospf=no metric-default=1 
+      metric-connected=20 metric-static=20 metric-rip=20 metric-bgp=auto 
+      metric-other-ospf=auto in-filter=ospf-in out-filter=ospf-out 
+
+/routing ospf network
+# backbone links
+add network=192.168.1.0/24 area=backbone
+add network=172.16.250.0/24 area=backbone
+add network=172.16.251.0/24 area=backbone
+add network=172.16.252.0/24 area=backbone
+
+[admin@Router-2] > routing ospf network print 
+Flags: X - disabled, I - invalid 
+ #   NETWORK            AREA                                                   
+ 0   192.168.1.0/24     backbone                                               
+ 1   172.16.250.0/24    backbone                                               
+ 2   172.16.251.0/24    backbone                                               
+ 3   172.16.252.0/24    backbone 
+
+🔧 3. Router-3
+/routing ospf instance
+set [ find default=yes ] router-id=3.3.3.3 distribute-default=never
+
+[admin@Router-3] > routing ospf instance print 
+Flags: X - disabled, * - default 
+ 0  * name="default" router-id=3.3.3.3 distribute-default=never 
+      redistribute-connected=no redistribute-static=no redistribute-rip=no 
+      redistribute-bgp=no redistribute-other-ospf=no metric-default=1 
+      metric-connected=20 metric-static=20 metric-rip=20 metric-bgp=auto 
+      metric-other-ospf=auto in-filter=ospf-in out-filter=ospf-out 
+
+/routing ospf network
+# backbone link
+add network=172.16.250.0/24 area=backbone
+
+# LAN Router-3
+add network=192.168.2.0/24 area=backbone
+add network=10.3.1.0/24 area=backbone
+add network=10.3.2.0/24 area=backbone
+
+[admin@Router-3] > routing ospf network print 
+Flags: X - disabled, I - invalid 
+ #   NETWORK            AREA                                                   
+ 0   172.16.250.0/24    backbone                                               
+ 1   192.168.2.0/24     backbone                                               
+ 2   10.3.1.0/24        backbone                                               
+ 3   10.3.2.0/24        backbone 
+
+🔧 4. Router-4
+/routing ospf instance
+set [ find default=yes ] router-id=4.4.4.4 distribute-default=never
+
+[admin@Router-4] > routing ospf instance print 
+Flags: X - disabled, * - default 
+ 0  * name="default" router-id=4.4.4.4 distribute-default=never 
+      redistribute-connected=no redistribute-static=no redistribute-rip=no 
+      redistribute-bgp=no redistribute-other-ospf=no metric-default=1 
+      metric-connected=20 metric-static=20 metric-rip=20 metric-bgp=auto 
+      metric-other-ospf=auto in-filter=ospf-in out-filter=ospf-out 
+
+/routing ospf network
+# backbone link
+add network=172.16.251.0/24 area=backbone
+
+# LAN Router-4
+add network=192.168.3.0/24 area=backbone
+add network=10.3.1.0/24 area=backbone
+add network=10.4.1.0/24 area=backbone
+
+[admin@Router-4] > routing ospf network print 
+Flags: X - disabled, I - invalid 
+ #   NETWORK            AREA                                                   
+ 0   172.16.251.0/24    backbone                                               
+ 1   192.168.3.0/24     backbone                                               
+ 2   10.3.1.0/24        backbone                                               
+ 3   10.4.1.0/24        backbone 
+
+🔧 5. Router-5
+/routing ospf instance
+set [ find default=yes ] router-id=5.5.5.5 distribute-default=never
+
+[admin@MikroTik] > routing ospf instance print 
+Flags: X - disabled, * - default 
+ 0  * name="default" router-id=5.5.5.5 distribute-default=never 
+      redistribute-connected=no redistribute-static=no redistribute-rip=no 
+      redistribute-bgp=no redistribute-other-ospf=no metric-default=1 
+      metric-connected=20 metric-static=20 metric-rip=20 metric-bgp=auto 
+      metric-other-ospf=auto in-filter=ospf-in out-filter=ospf-out 
+
+/routing ospf network
+# backbone link
+add network=172.16.252.0/24 area=backbone
+
+# LAN Router-5
+add network=192.168.4.0/24 area=backbone
+add network=10.3.2.0/24 area=backbone
+add network=10.4.1.0/24 area=backbone
+
+[admin@MikroTik] > routing ospf network print 
+Flags: X - disabled, I - invalid 
+ #   NETWORK            AREA                                                   
+ 0   172.16.252.0/24    backbone                                               
+ 1   192.168.4.0/24     backbone                                               
+ 2   10.3.2.0/24        backbone                                               
+ 3   10.4.1.0/24        backbone 
+
+🧪 CEK STATUS OSPF
+/routing ospf neighbor print
+
+Cek route OSPF:
+/ip route print where ospf

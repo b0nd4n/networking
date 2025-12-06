@@ -1,0 +1,94 @@
+R-1
+IP address
+ether1: 192.168.1.1/24
+ether2: 192.168.2.1/24
+ether3: 192.168.3.1/24
+ether4: 192.168.4.1/24
+
+[admin@Router-1] > ip address add address=192.168.1.1/24 interface=ether1
+[admin@Router-1] > ip address add address=192.168.2.1/24 interface=ether2
+[admin@Router-1] > ip address add address=192.168.3.1/24 interface=ether3
+[admin@Router-1] > ip address add address=192.168.4.1/24 interface=ether4
+[admin@Router-1] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.1/24     192.168.1.0     ether1                                 
+ 1   192.168.2.1/24     192.168.2.0     ether2                                 
+ 2   192.168.3.1/24     192.168.3.0     ether3                                 
+ 3   192.168.4.1/24     192.168.4.0     ether4 
+
+R-2
+IP address
+ether1: 192.168.1.2/24
+ether2: 172.16.250.1/24
+ether3: 172.16.251.1/24
+ether4: 172.16.252.1/24
+
+[admin@Router-2] > ip address add address=192.168.1.2/24 interface=ether1
+[admin@Router-2] > ip address add address=172.16.250.1/24 interface=ether2
+[admin@Router-2] > ip address add address=172.16.251.1/24 interface=ether3
+[admin@Router-2] > ip address add address=172.16.252.1/24 interface=ether4
+[admin@Router-2] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.1.2/24     192.168.1.0     ether1                                 
+ 1   172.16.250.1/24    172.16.250.0    ether2                                 
+ 2   172.16.251.1/24    172.16.251.0    ether3                                 
+ 3   172.16.252.1/24    172.16.252.0    ether4 
+
+R-3
+IP address
+ether1: 192.168.2.2/24
+ether2: 172.16.250.2/24
+ether3: 10.3.1.1/24
+ether4: 10.3.2.1/24
+
+[admin@Router-3] > ip address add address=192.168.2.2/24 interface=ether1
+[admin@Router-3] > ip address add address=172.16.250.2/24 interface=ether2
+[admin@Router-3] > ip address add address=10.3.1.1/24 interface=ether3
+[admin@Router-3] > ip address add address=10.3.2.1/24 interface=ether4
+[admin@Router-3] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.2.2/24     192.168.2.0     ether1                                 
+ 1   172.16.250.2/24    172.16.250.0    ether2                                 
+ 2   10.3.1.1/24        10.3.1.0        ether3                                 
+ 3   10.3.2.1/24        10.3.2.0        ether4 
+
+R-4
+IP address
+ether1: 192.168.3.2/24
+ether2: 172.16.251.2/24
+ether3: 10.3.1.2/24
+ether4: 10.4.1.1/24
+
+[admin@Router-4] > ip address add address=192.168.3.2/24 interface=ether1
+[admin@Router-4] > ip address add address=172.16.251.2/24 interface=ether2
+[admin@Router-4] > ip address add address=10.3.1.2/24 interface=ether3
+[admin@Router-4] > ip address add address=10.4.1.1/24 interface=ether4
+[admin@Router-4] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.3.2/24     192.168.3.0     ether1                                 
+ 1   172.16.251.2/24    172.16.251.0    ether2                                 
+ 2   10.3.1.2/24        10.3.1.0        ether3                                 
+ 3   10.4.1.1/24        10.4.1.0        ether4  
+
+R-5
+IP address
+ether1: 192.168.4.2/24
+ether2: 172.16.252.2/24
+ether3: 10.3.1.2/24
+ether4: 10.4.1.2/24
+
+[admin@Router-5] > ip address add address=192.168.4.2/24 interface=ether1
+[admin@Router-5] > ip address add address=172.16.252.2/24 interface=ether2
+[admin@Router-5] > ip address add address=10.3.2.2/24 interface=ether3
+[admin@Router-5] > ip address add address=10.4.1.2/24 interface=ether4
+[admin@Router-5] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.4.2/24     192.168.4.0     ether1                                 
+ 1   172.16.252.2/24    172.16.252.0    ether2                                 
+ 2   10.3.2.2/24        10.3.2.0        ether3                                 
+ 3   10.4.1.2/24        10.4.1.0        ether4
