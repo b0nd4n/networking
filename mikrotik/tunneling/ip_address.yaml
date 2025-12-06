@@ -1,0 +1,23 @@
+[admin@Kantor Pusat] > ip address add address=10.225.252.2/24 interface=ether1
+[admin@Kantor Pusat] > ip address add address=10.0.1.1/24 interface=ether2
+[admin@Kantor Pusat] > ip address add address=10.1.1.1/24 interface=ether3
+[admin@Kantor Pusat] > ip address add address=10.2.1.1/24 interface=ether4
+[admin@Kantor Pusat] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   10.225.252.2/24    10.225.252.0    ether1                                 
+ 1   10.0.1.1/24        10.0.1.0        ether2                                 
+ 2   10.1.1.1/24        10.1.1.0        ether3                                 
+ 3   10.2.1.1/24        10.2.1.0        ether4
+
+[admin@Kantor Cabang] > ip address add address=192.168.255.2/24 interface=ether1
+[admin@Kantor Cabang] > ip address add address=10.0.2.1/24 interface=ether2
+[admin@Kantor Cabang] > ip address add address=10.0.3.1/24 interface=ether3
+[admin@Kantor Cabang] > ip address add address=10.0.4.1/24 interface=ether4
+[admin@Kantor Cabang] > ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                              
+ 0   192.168.255.2/24   192.168.255.0   ether1                                 
+ 1   10.0.2.1/24        10.0.2.0        ether2                                 
+ 2   10.0.3.1/24        10.0.3.0        ether3                                 
+ 3   10.0.4.1/24        10.0.4.0        ether4                                 

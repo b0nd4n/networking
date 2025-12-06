@@ -1,0 +1,23 @@
+[admin@Kantor Pusat] > ip route add dst-address=0.0.0.0/0 gateway=10.225.252.1
+[admin@Kantor Pusat] > ip route print 
+Flags: X - disabled, A - active, D - dynamic, 
+C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0 A S  0.0.0.0/0                          10.225.252.1              1
+ 1 ADC  10.0.1.0/24        10.0.1.1        ether2                    0
+ 2 ADC  10.1.1.0/24        10.1.1.1        ether3                    0
+ 3 ADC  10.2.1.0/24        10.2.1.1        ether4                    0
+ 4 ADC  10.225.252.0/24    10.225.252.2    ether1                    0
+
+[admin@Kantor Cabang] > ip route add dst-address=0.0.0.0/0 gateway=192.168.255.1
+[admin@Kantor Cabang] > ip route print 
+Flags: X - disabled, A - active, D - dynamic, 
+C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0 A S  0.0.0.0/0                          192.168.255.1             1
+ 1 ADC  10.0.2.0/24        10.0.2.1        ether2                    0
+ 2 ADC  10.0.3.0/24        10.0.3.1        ether3                    0
+ 3 ADC  10.0.4.0/24        10.0.4.1        ether4                    0
+ 4 ADC  192.168.255.0/24   192.168.255.2   ether1                    0

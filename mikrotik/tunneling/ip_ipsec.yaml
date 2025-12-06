@@ -1,0 +1,100 @@
+[admin@Kantor Pusat] > ip ipsec profile add name=profile-site2site hash-algorithm=sha1 enc-algorithm=aes-128 dh-group=modp2048 lifetime=1d proposal-check=obey  nat-traversal=yes dpd-interval=2m dpd-maximum-failures=5
+[admin@Kantor Pusat] > ip ipsec profile print detail 
+Flags: * - default 
+ 0 * name="default" hash-algorithm=sha1 enc-algorithm=aes-128,3des 
+     dh-group=modp2048,modp1024 lifetime=1d proposal-check=obey 
+     nat-traversal=yes dpd-interval=2m dpd-maximum-failures=5 
+
+ 1   name="profile-site2site" hash-algorithm=sha1 enc-algorithm=aes-128 
+     dh-group=modp2048 lifetime=1d proposal-check=obey nat-traversal=yes 
+     dpd-interval=2m dpd-maximum-failures=5 
+
+[admin@Kantor Pusat] > ip ipsec proposal add name=proposal-site2site auth-algorithms=sha1 enc-algorithms=aes-128-cbc pfs-group=modp2048 lifetime=30m
+[admin@Kantor Pusat] > ip ipsec proposal print detail 
+Flags: X - disabled, * - default 
+ 0  * name="default" auth-algorithms=sha1 
+      enc-algorithms=aes-256-cbc,aes-192-cbc,aes-128-cbc lifetime=30m 
+      pfs-group=modp1024 
+
+ 1    name="proposal-site2site" auth-algorithms=sha1 enc-algorithms=aes-128-cbc 
+      lifetime=30m pfs-group=modp2048 
+
+[admin@Kantor Pusat] > ip ipsec peer add name=peer-site2site address=192.168.255.2/32 profile=profile-site2site exchange-mode=main send-initial-contact=yes
+[admin@Kantor Pusat] > ip ipsec peer print detail 
+Flags: X - disabled, D - dynamic, R - responder 
+ 0     name="peer-site2site" address=192.168.255.2/32 profile=profile-site2site 
+       exchange-mode=main send-initial-contact=yes       
+
+[admin@Kantor Pusat] > ip ipsec identity add peer=peer-site2site secret=R@hasia1234!! auth-method=pre-shared-key generate-policy=no 
+[admin@Kantor Pusat] > ip ipsec identity print detail 
+Flags: D - dynamic, X - disabled 
+ 0    peer=peer-site2site auth-method=pre-shared-key secret="R@hasia1234!!" 
+      generate-policy=no 
+
+[admin@Kantor Pusat] > ip ipsec policy add peer=peer-site2site tunnel=yes src-address=10.0.1.0/24 src-port=any dst-address=10.0.2.0/24 dst-port=any protocol=all action=encrypt level=require ipsec-protocols=esp proposal=proposal-site2site
+[admin@Kantor Pusat] > ip ipsec policy print detail 
+Flags: T - template, B - backup, 
+X - disabled, D - dynamic, I - invalid, A - active, * - default 
+ 0 T X* group=default src-address=::/0 dst-address=::/0 protocol=all 
+        proposal=default template=yes 
+
+ 1   A  peer=peer-site2site tunnel=yes src-address=10.0.1.0/24 src-port=any 
+        dst-address=10.0.2.0/24 dst-port=any protocol=all action=encrypt 
+        level=require ipsec-protocols=esp sa-src-address=10.225.252.2 
+        sa-dst-address=192.168.255.2 proposal=proposal-site2site ph2-count=2 
+
+[admin@Kantor Cabang] > ip ipsec profile print detail 
+Flags: * - default 
+ 0 * name="default" hash-algorithm=sha1 enc-algorithm=aes-128,3des 
+     dh-group=modp2048,modp1024 lifetime=1d proposal-check=obey 
+     nat-traversal=yes dpd-interval=2m dpd-maximum-failures=5 
+
+ 1   name="profile-site2site" hash-algorithm=sha1 enc-algorithm=aes-128 
+     dh-group=modp2048 lifetime=1d proposal-check=obey nat-traversal=yes 
+     dpd-interval=2m dpd-maximum-failures=5
+
+[admin@Kantor Cabang] > ip ipsec profile print detail 
+Flags: * - default 
+ 0 * name="default" hash-algorithm=sha1 enc-algorithm=aes-128,3des 
+     dh-group=modp2048,modp1024 lifetime=1d proposal-check=obey 
+     nat-traversal=yes dpd-interval=2m dpd-maximum-failures=5 
+
+ 1   name="profile-site2site" hash-algorithm=sha1 enc-algorithm=aes-128 
+     dh-group=modp2048 lifetime=1d proposal-check=obey nat-traversal=yes 
+     dpd-interval=2m dpd-maximum-failures=5 
+[admin@Kantor Cabang] > ip ipsec proposal print detail 
+Flags: X - disabled, * - default 
+ 0  * name="default" auth-algorithms=sha1 
+      enc-algorithms=aes-256-cbc,aes-192-cbc,aes-128-cbc lifetime=30m 
+      pfs-group=modp1024 
+
+ 1    name="proposal-site2site" auth-algorithms=sha1 enc-algorithms=aes-128-cbc 
+      lifetime=30m pfs-group=modp2048 
+
+[admin@Kantor Cabang] > ip ipsec proposal print detail 
+Flags: X - disabled, * - default 
+ 0  * name="default" auth-algorithms=sha1 
+      enc-algorithms=aes-256-cbc,aes-192-cbc,aes-128-cbc lifetime=30m 
+      pfs-group=modp1024 
+
+ 1    name="proposal-site2site" auth-algorithms=sha1 enc-algorithms=aes-128-cbc 
+      lifetime=30m pfs-group=modp2048 
+[admin@Kantor Cabang] > ip ipsec peer print detail 
+Flags: X - disabled, D - dynamic, R - responder 
+ 0     name="peer-site2site" address=10.225.252.2/32 profile=profile-site2site 
+       exchange-mode=main send-initial-contact=yes 
+
+[admin@Kantor Cabang] > ip ipsec identity print detail 
+Flags: D - dynamic, X - disabled 
+ 0    peer=peer-site2site auth-method=pre-shared-key secret="R@hasia1234!!" 
+      generate-policy=no 
+
+[admin@Kantor Cabang] > ip ipsec policy print detail 
+Flags: T - template, B - backup, 
+X - disabled, D - dynamic, I - invalid, A - active, * - default 
+ 0   A  peer=peer-site2site tunnel=yes src-address=10.0.2.0/24 src-port=any 
+        dst-address=10.0.1.0/24 dst-port=any protocol=all action=encrypt 
+        level=require ipsec-protocols=esp sa-src-address=192.168.255.2 
+        sa-dst-address=10.225.252.2 proposal=proposal-site2site ph2-count=2
+        
+                

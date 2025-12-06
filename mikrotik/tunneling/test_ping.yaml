@@ -1,0 +1,15 @@
+[admin@Kantor Pusat] > ping 192.168.255.2
+  SEQ HOST                                     SIZE TTL TIME  STATUS           
+    0 192.168.255.2                              56  63 9ms  
+    1 192.168.255.2                              56  63 4ms  
+    2 192.168.255.2                              56  63 4ms  
+    3 192.168.255.2                              56  63 4ms  
+    sent=4 received=4 packet-loss=0% min-rtt=4ms avg-rtt=5ms max-rtt=9ms 
+
+[admin@Kantor Cabang] > ping 10.225.252.2
+  SEQ HOST                                     SIZE TTL TIME  STATUS           
+    0 10.225.252.2                               56  63 6ms  
+    1 10.225.252.2                               56  63 4ms  
+    2 10.225.252.2                               56  63 4ms  
+    3 10.225.252.2                               56  63 4ms  
+    sent=4 received=4 packet-loss=0% min-rtt=4ms avg-rtt=4ms max-rtt=6ms 
